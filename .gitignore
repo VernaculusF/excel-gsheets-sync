@@ -35,5 +35,7 @@ Thumbs.db
 # Logs
 *.log
 
-# Git
-.git/
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
