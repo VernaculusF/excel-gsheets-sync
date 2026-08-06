@@ -1,23 +1,23 @@
 # Excel Google Sheets Sync
 
-Python CLI для двусторонней синхронизации данных между файлами Excel и Google Sheets. При экспорте инструмент форматирует книгу, а перед импортом создаёт резервный лист.
+A Python CLI for bidirectional synchronization between Excel files and Google Sheets. It formats exported workbooks and creates a backup sheet before imports.
 
-## Возможности
+## Features
 
-- Экспорт Google Sheets в `.xlsx`.
-- Импорт `.xlsx` в Google Sheets с проверкой структуры.
-- Резервное копирование листа перед импортом.
-- Форматирование заголовков, границ, выравнивания и ширины столбцов.
-- Условное выделение числовых значений.
+- Export Google Sheets data to `.xlsx`.
+- Import `.xlsx` data into Google Sheets with structure validation.
+- Create a backup sheet before import.
+- Format headers, borders, alignment, and column widths.
+- Apply conditional highlighting to numeric values.
 
-## Стек
+## Stack
 
 - Python 3.10+
-- gspread и Google Auth
+- gspread and Google Auth
 - openpyxl
 - python-dotenv
 
-## Быстрый старт
+## Quick start
 
 ```bash
 python -m venv .venv
@@ -27,24 +27,24 @@ cp .env.example .env
 cp creds.json.example creds.json
 ```
 
-Укажите идентификатор таблицы и имя листа в `.env`, затем замените содержимое `creds.json` ключом Google Service Account. Таблица должна быть доступна адресу `client_email` из этого ключа.
+Set the spreadsheet ID and sheet name in `.env`, then replace `creds.json` with a Google Service Account key. Share the spreadsheet with the `client_email` address from that key.
 
 ```bash
 python sync.py --export
 python sync.py --import --file report.xlsx
 ```
 
-## Структура проекта
+## Project structure
 
 ```text
-sync.py             CLI и запуск синхронизации
-sheets_client.py    операции Google Sheets API
-excel_handler.py    чтение и запись Excel
-formatter.py        правила форматирования
-config.py           загрузка конфигурации
-requirements.txt    зависимости Python
+sync.py             CLI and synchronization entry point
+sheets_client.py    Google Sheets API operations
+excel_handler.py    Excel reading and writing
+formatter.py        workbook formatting rules
+config.py           configuration loading
+requirements.txt    Python dependencies
 ```
 
-## Лицензия
+## License
 
 MIT
